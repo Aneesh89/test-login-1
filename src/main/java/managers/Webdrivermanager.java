@@ -57,7 +57,7 @@ public class Webdrivermanager {
 	        System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
 				ChromeOptions options = new ChromeOptions();
                 	options.addArguments("headless");
-               		 options.addArguments("window-size=1200x600");
+               		 options.addArguments("window-size=1280x1024");
 			driver = new ChromeDriver(options);
 			//driver = new ChromeDriver();
 			break;
