@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -50,11 +51,15 @@ public class Webdrivermanager {
 		case FIREFOX:
 			System.setProperty(FIREFOX_DRIVER_PROPERTY,FileReaderManager.getInstance().getConfigReader().getDriverPath());
 			driver = new FirefoxDriver();
-
+			 
 			break;
 		case CHROME:
 	        System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
-			driver = new ChromeDriver();
+				ChromeOptions options = new ChromeOptions();
+                	options.addArguments("headless");
+               		 options.addArguments("window-size=1200x600");
+			driver = new ChromeDriver(options);
+			//driver = new ChromeDriver();
 			break;
 		case INTERNETEXPLORER:
 			driver = new InternetExplorerDriver();
